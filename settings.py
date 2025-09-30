@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'course',
-    'drf_spectacular'
+    'drf_spectacular',
+    'rest_framework',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -130,6 +132,10 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_FILTER_BACKENDS':[
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter'
+    ],
 }
 
 SPECTACULAR_SETTINGS = {
